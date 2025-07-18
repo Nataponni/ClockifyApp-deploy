@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <title>Report – {{ client }} / {{ project }} / {{ months_range }}</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header class="report-header">
+        <div class="header-text">
+            <h1>Inpro Analytics GmbH</h1>
+        </div>
+        <img src="{{ logo }}" alt="Logo" class="logo">
+    </header>
+    <h2>Stundenaufstellung {{ months_range }}</h2>
+    <main>
+        <table class="report-table">
+            <thead>
+                <tr style="font-weight: 900;">
+                    <th>Beschreibung</th>
+                    <th>Aufgabe</th>
+                    <th>Datum</th>
+                    <th>Dauer</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in rows %}
+                <tr class="report-row">
+                    <td>{{ row['Beschreibung'] }}</td>
+                    <td>{{ row['Aufgabe'] }}</td>
+                    <td>{{ row['Datum'] }}</td>
+                    <td>{{ row['Dauer'] }}</td>
+                </tr>
+                {% endfor %}  
+                <tr class="summary-row">
+                    <td colspan="3" style="text-align: left;"><strong>Gesamtaufwand:</strong></td>
+                    <td style="text-align: center;"><strong>{{ total_hours }} h</strong></td>
+                </tr>             
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>
+
