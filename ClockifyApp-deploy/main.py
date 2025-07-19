@@ -17,7 +17,6 @@ import re
 import os
 
 
-# auto-loads the .env file
 
 
 API_KEY      = 'NmYxYzcxZDItYTk2OS00MjljLTlhMzktYWE2ZWRmZTg0Njc5'
